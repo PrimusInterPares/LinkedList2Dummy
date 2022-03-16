@@ -14,14 +14,6 @@ public class LinkedList2Dummy
 
     }
 
-    public void print(Node head, Node tail) {
-        head = head.next;
-        while (head != tail) {
-            System.out.println(head.value);
-            head = head.next;
-        }
-    }
-
     public void addInTail(Node _item)
     {
         this.dummyTail.prev.next = _item;
@@ -33,7 +25,7 @@ public class LinkedList2Dummy
     public Node find(int _value)
     {
         Node node = dummyHead.next;
-        while (node != dummyTail) {
+        while (!(node instanceof DNode)) {
             if (node.value == _value) {
                 return node;
             }
@@ -46,7 +38,7 @@ public class LinkedList2Dummy
     {
         ArrayList<Node> nodes = new ArrayList<>();
         Node node = dummyHead.next;
-        while (node != dummyTail) {
+        while (!(node instanceof DNode)) {
             if (node.value == _value) {
                 nodes.add(node);
             }
@@ -58,7 +50,7 @@ public class LinkedList2Dummy
     public boolean remove(int _value)
     {
         Node node = dummyHead.next;
-        while (node != dummyTail) {
+        while (!(node instanceof DNode)) {
             if (node.value == _value) {
                 node.prev.next = node.next;
                 node.next.prev = node.prev;
@@ -72,7 +64,7 @@ public class LinkedList2Dummy
     public void removeAll(int _value)
     {
         Node node = dummyHead.next;
-        while (node != dummyTail) {
+        while (!(node instanceof DNode)) {
             if (node.value == _value) {
                 node.prev.next = node.next;
                 node.next.prev = node.prev;
@@ -92,7 +84,7 @@ public class LinkedList2Dummy
     {
         int result = 0;
         Node node = this.dummyHead.next;
-        while (node != dummyTail) {
+        while (!(node instanceof DNode)) {
             result++;
             node = node.next;
         }
